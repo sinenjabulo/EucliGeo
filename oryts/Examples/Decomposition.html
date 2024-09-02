@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Decomposition </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <style>
+        .container1 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .container1 button {
+            margin: 10px;
+        }
+
+    
+    </style>
+
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Examples</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="../home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="Examples.html">Examples</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Definitions/definitions.html">Definitions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Definitions/theorems.html">Theorems</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="algorithm.html">Algorithms</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container1">
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='Example1.html'">Abstraction</button>
+        <button type="button" class="btn btn-primary btn-lg active" onclick="location.href='#'">Decomposition</button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='Pattern_Recognition.html'">Pattern Recognition</button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='Solving.html'">Solving</button>
+    </div>
+
+    <h3>Draw with GeoGebra: you can create as many Subdiagrams you want and play with them to see the relationships between angles in the subdiagrams</h3>
+    <p><b>If you are using a smartphone, you can tilt your phone for a clear view of the diagrams</b></p>
+    <div id="ggb-element"></div>  
+
+
+    <footer>
+        <ul class="pager">
+            <li class="previous"><a href="../Examples/Examples.html"> Previous </a></li>
+            <li class="next"><a href="Pattern_Recognition.html"> Next </a></li>
+        </ul>
+    </footer>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var parameters = {
+            "width":1500,
+            "height":600,
+            "showToolBar":true,
+            "borderColor":null,
+            "showMenuBar":true,
+            "showAlgebraInput":false,
+            "showResetIcon":true,
+            "enableLabelDrags":false,
+            "enableShiftDragZoom":false,
+            "enableRightClick":false,
+            "capturingThreshold":null,
+            "showToolBarHelp":true,
+            "errorDialogsActive":true,
+            "useBrowserForJS":false,
+            "material_id":"ajphgugd"};
+    var applet = new GGBApplet(parameters,true);
+     //  when used with Math Apps Bundle, uncomment this:
+     //  applet.setHTML5Codebase('GeoGebra/HTML5/5.0/web/');
+    window.onload = function() { applet.inject('ggb-element'); }
+
+    });
+</script>
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../script.js"></script>
+
+    <style>
+        .square {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            border: 2px solid red;
+        }
+        .container1 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .container1 button {
+            margin: 10px;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Adjust this height as needed */
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .checkbox-container {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Theorems</h1>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Theorems</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="../home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Examples/Examples.html">Examples</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="definitions.html">Definitions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="theorems.html">Theorems</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="algorithm.html">Algorithms</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<!--*************************************************** LINES *********************************************-->
+    <div class="container">
+        <h1>Theorems about Lines</h1>
+
+        <div class="row">
+            <div class="col-md-6 mt-4">
+                <h3>Corresponding Angles are equal</h3>
+                <div id="gg-element-corr" ></div>
+
+            </div>
+            <div class="col-md-6 mt-4">
+                <h3>Alternating Angles are equal</h3>
+                <div id="gg-element-alt" class="col-md-6 mt-4"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mt-4">
+                <h3>Co-Interior Angles add up to 180</h3>
+                <div id="gg-element-coint" ></div>
+
+            </div>
+            <div class="col-md-6 mt-4">
+                <h3>Vertically Opposite Angles are equal</h3>
+                <div id="gg-element-vrtopp" class="col-md-6 mt-4"></div>
+            </div>
+        </div>
+
+    
+    </div>
+
+    <hr>
+<!--******************************************** Circles with center ******************************************-->
+    <div class="container">
+        <h1>Theorems about Circles with center</h1>
+        <div class="row">
+            <div class="col-md-6 mt-4">
+                <h3>Radius perpendicular to a chord</h3>
+                <div id="gg-element-radius_chord" ></div>
+
+            </div>
+            <div class="col-md-6 mt-4">
+                <h3>Angle at center is twice angle at circumference</h3>
+                <div id="gg-element-center_circum" class="col-md-6 mt-4"></div>
+            </div>
+            
+            
+
+
+        </div>
+        <div class="row">
+            <div class="col-md-6 mt-4">
+                <h3>Angle in a semi-circle</h3>
+                <div id="gg-element-semi_circle" class="col-md-6 mt-4"></div>
+            </div>
+            <div class="col-md-6 mt-4">
+                <h3>Angles subtended by same segment are equal</h3>
+                <div id="gg-element-angles_segment" class="col-md-6 mt-4"></div>
+            </div>
+
+        </div>
+        
+        
+    </div>
+<hr>
+<!--*********************************************Cyclic Quadrilaterals  ************************************************-->
+<div class="container">
+    <h1>Theorems about Cyclic Quadrilaterals</h1>
+    <div class="row">
+        <div class="col-md-6 mt-4">
+            <h3>Opposite Angles of a Cyclic Quadrilaterals add up to 180</h3>
+            <div id="gg-element-interior_cq" ></div>
+
+        </div>
+        <div class="col-md-6 mt-4">
+            <h3>Exterior angle of a Cyclic Quadrilaterals is equal to the opposite interior angle</h3>
+            <div id="gg-element-exterior_cq" class="col-md-6 mt-4"></div>
+        </div>
+        
+        
+    </div>
+   
+    
+    
+</div>
+<!--********************************************** Quadrilaterals *****************************************-->
+<hr>
+
+<!--***********************************************Triangles ********************************************-->
+<div class="image-container">
+    <h3>Theorems about Triangles</h3>
+    
+    
+</div>
+<hr>
+<!--************************************************* Tangents *******************************************-->
+<div>
+    <h1>Theorems about Tangents</h1>
+    <div class="row">
+        <div class="col-md-6 mt-4">
+            <h3>The angle between a tangent and a chord is equal to the angle in the alternate segment </h3>
+            <div id="gg-element-tan_chord" ></div>
+
+        </div>
+        <div class="col-md-6 mt-4">
+            <h3>A tangent to a circle is perpendicular to a radius at the point of contact</h3>
+            <div id="gg-element-tan_rad" class="col-md-6 mt-4"></div>
+        </div>
+        
+        
+    </div>
+</div>
+ 
+
+    <script>
+
+
+        var theorems  = {
+            Lines : [
+                { key: 1, diagram: document.getElementById("gg-element-corr"), material_id: "qgsbwgnh"},
+                { key: 2, diagram: document.getElementById("gg-element-alt"), material_id:"kpkcmdpb"},
+                { key: 3, diagram: document.getElementById("gg-element-coint"), material_id:"argackwd"},
+                { key: 4, diagram: document.getElementById("gg-element-vrtopp"), material_id:"aw5h8sda"},
+
+            ],
+            Circles : [
+                { key: 1, diagram: document.getElementById("gg-element-radius_chord"), material_id: "pungk7yk"},
+                { key: 2, diagram: document.getElementById("gg-element-center_circum"), material_id:"teqsrfwn"},
+                { key: 3, diagram: document.getElementById("gg-element-semi_circle"), material_id:"euqjvu3w"},
+                { key: 4, diagram: document.getElementById("gg-element-angles_segment"), material_id:"fctd9bsb"},
+
+                
+            ],
+            Triangles : [
+
+            ],
+
+            CyclicQuad:[
+                { key: 1, diagram: document.getElementById("gg-element-interior_cq"), material_id:"pjyywdpc"},
+                { key: 2, diagram: document.getElementById("gg-element-exterior_cq"), material_id:"v7wcwzae"},
+
+                
+
+            
+            ],
+            Tangents : [
+                { key: 1, diagram: document.getElementById("gg-element-tan_chord"), material_id:"qwcbmdcq"},
+                { key: 2, diagram: document.getElementById("gg-element-tan_rad"), material_id:"mckj2qyb"},
+                { key: 3, diagram: document.getElementById("gg-element-tan_rad"), material_id:"mckj2qyb"},
+
+            
+            ],
+        }
+        
+        for(let category in theorems){
+            theorems[category].forEach(element => {
+            
+            var parameters = {
+               "width": 500,
+               "height": 600,
+               "showToolBar": false,
+               "borderColor": null,
+               "showMenuBar": false,
+               "showAlgebraInput": false,
+               "showResetIcon": false,
+               "enableLabelDrags": false,
+               "enableShiftDragZoom": true,
+               "enableRightClick": false,
+               "capturingThreshold": null,
+               "showToolBarHelp": true,
+               "errorDialogsActive": true,
+               "useBrowserForJS": false,
+               "material_id": element.material_id
+           };
+           
+            var applet = new GGBApplet(parameters, true);
+           applet.inject(element.diagram);
+            
+        });
+        }
+        
+        /*document.addEventListener("DOMContentLoaded", function() {
+           
+           //original diagram
+           var parameters = {
+               "width": 1000,
+               "height": 500,
+               "showToolBar": false,
+               "borderColor": null,
+               "showMenuBar": false,
+               "showAlgebraInput": false,
+               "showResetIcon": false,
+               "enableLabelDrags": false,
+               "enableShiftDragZoom": true,
+               "enableRightClick": false,
+               "capturingThreshold": null,
+               "showToolBarHelp": true,
+               "errorDialogsActive": true,
+               "useBrowserForJS": false,
+               "material_id": material_id
+           };
+           
+            var applet = new GGBApplet(parameters, true);
+           applet.inject(diagramDIV);
+        });*/
+    </script>
+</body>
+</html>

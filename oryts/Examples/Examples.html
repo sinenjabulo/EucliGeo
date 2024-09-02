@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .square {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            /*display: inline-block;*/
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            border: 2px;
+            border-color:red ;
+        }
+        .container1 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+   <!-- Navigation Bar -->
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Examples</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="../home.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="Examples.html">Examples</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Definitions/definitions.html">Definitions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Definitions/theorems.html">Theorems</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="algorithm.html">Algorithms</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+    <div class="container">
+        <h1>Choose an example</h1>
+    </div>
+    <div class="container1">
+        <button type="button" class="btn btn-primary btn-lg btn-block custom-btn" onclick="location.href='Example1.html'">Example 1</div>
+        <button type="button" class="btn btn-primary btn-lg btn-block custom-btn" onclick="location.href='Example2.html'">Example 2</div>
+
+            <!-- <button class="square" style="background-image: url('image2.jpg');" onclick="location.href='page2.html'">Example 2</div>
+        <button class="square" style="background-image: url('image3.jpg');" onclick="location.href='page3.html'">Example 3</div>
+        <button class="square" style="background-image: url('image4.jpg');" onclick="location.href='page4.html'"> Example 4</div> -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
