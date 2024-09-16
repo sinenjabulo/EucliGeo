@@ -278,12 +278,7 @@ function viewFinalD(){
 
     }
 
-   
-
-  
-
 }
-
 
 
 //*****************************************SOLVINGING.html********************************************* */
@@ -475,7 +470,7 @@ function diagram3(){
 }
 document.addEventListener("DOMContentLoaded", conclusion());
 
-    // Check final conclusion
+// Check final conclusion
 function conclusion() {
     let conclusion = conclusions //document.getElementById("combine1").value.toLowerCase().replace(/\s+/g, "");
     
@@ -520,6 +515,7 @@ function myKeywordsCheckList() {
     sessionStorage.setItem("selectedKeywords", JSON.stringify(checkedLabels));
         chooseKeywordsElement.style.fontSize = "24px";
     
+    //check the words selected by the user
     if(checkedLabels.includes("Circle with center")){
         chooseKeywordsElement.innerHTML = "What is a center? Is there anything that includes a center in the statement or diagram?"
         chooseKeywordsElement.style.color = "red";
@@ -542,8 +538,6 @@ function myKeywordsCheckList() {
 
     return checkedLabels;
 }
-
-
 
 // PATTERN RECOGNITION
 //retrieves the keywords from storage, matches the keywords with their properties
@@ -948,9 +942,6 @@ function toggleFeedback2(diagramNumber) {
         { value:"180 - Angle C2 - Angle A",         reasoning:"Sum of interior angles of triangles add up to 180",  feedback:"Correct! Angle R1 = 180 - Angle C2 - Angle A [Sum of interior angles of triangles add up to 180]"},
         { value:"Angle T2",         reasoning:"Proven in 10.1",  feedback:"Correct!"}
 
-
-
-    
     ];
 
     const index = diagramNumber - 1;
@@ -1138,8 +1129,6 @@ function showFinalTheorems() {
     }
 }
 
-
-
 // Storing the theorems so that they can be accessible whenever they are needed
 function storeFinalTheorems() {
     const highlightedCells = document.querySelectorAll('.highlighted');
@@ -1154,7 +1143,6 @@ function storeFinalTheorems() {
     // Store the final theorems in sessionStorage
     sessionStorage.setItem('finalTheorems', JSON.stringify(finalTheorems));
 }
-
 
 // MATCHING FUNCTION
 function matching() {
@@ -1298,64 +1286,6 @@ if (feedbackElementACR.style.display === "none" ) {
 }
 
 }
-/*
-function angle_sides(){
-         // Diagram 2
-         let angles2 = document.getElementById("angles2");
-         let sides2 = document.getElementById("sides2");
-         let feedback2="";
-          // Diagram 1
-          let angles1 = document.getElementById("angles1");
-          let sides1 = document.getElementById("sides1");
-          let feedback1 = "";
-
-                // Check angles and sides for Diagram 1
-      if (angles1.checked) {
-        feedback1 = "Correct! Information is given in angles, there are no labels for the sides<br>";
-        }
-        if (sides1.checked) {
-            feedback1 += "There are no labels for sides; nothing was said about sides, we are just asked to prove them.";
-        }
-
-        // Check angles and sides for Diagram 2
-        if (angles2.checked) {
-            feedback2 = "Correct! Information is given in angles, there are no labels for the sides<br>";
-        }
-        if (sides2.checked) {
-            feedback2 += "There are no labels for sides; nothing was said about sides, we are just asked to prove them.";
-        }
-
-        var feedbackElement1 = document.getElementById("as1_checked");
-        var feedbackElement2 = document.getElementById("as2_checked");
-
-        if (feedbackElement2.style.display === "none" || feedbackElement1.style.display === "none" ) {
-           
-   
-            
-                //diagram 1
-            feedbackElement1.innerHTML = feedback1;
-            feedbackElement1.style.display = "block";
-            this.textContent = "Hide Feedback"; 
-        
-                    
-             //diagram 2
-           feedbackElement2.innerHTML = feedback2;
-           feedbackElement2.style.display = "block";
-           this.textContent = "Hide Feedback"; 
-   
-   
-   
-        } else {
-       
-            feedbackElement1.style.display = "none"; // Hide the paragraph
-            this.textContent = "Show Feedback"; // Re
-
-            feedbackElement2.style.display = "none"; // Hide the paragraph
-            this.textContent = "Show Feedback"; // Re
-   
-        }
-   
-}*/
 
 function prop_sides(){
     //For triangles ADS and ACR
@@ -1505,7 +1435,6 @@ function conclusions_here() {
         alert("Please make sure all answers in both diagrams are correct before viewing the conclusion.");
     }
 }
-
 
 //working with congruency and similarities and their properties
 function congruency_similarity() {
