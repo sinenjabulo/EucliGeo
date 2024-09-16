@@ -693,6 +693,7 @@ function pattern_recognition() {
         keywordOutput.textContent = "No keywords found in sessionStorage.";
     }
 }
+
 function theoremButtons(diagramNumber, theorem){
     document.getElementById('reasoning1').value = theorem;
     document.getElementById('reasoning2').value = theorem;
@@ -768,6 +769,7 @@ function theoremButtons(diagramNumber, theorem){
    
     
 }
+
 function toggleFeedback(diagramNumber) {
     const feedbackElements = [
         document.getElementById('angleFeedback'),
@@ -1082,9 +1084,6 @@ window.addEventListener('load', function() {
         });
     }
 });
-
-
-
 
 // Event listener to load keywords and display associated theorems
 function showKeywords() {
