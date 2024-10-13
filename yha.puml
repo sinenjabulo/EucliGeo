@@ -1,0 +1,16 @@
+@startuml webApp
+class User {
+  + String name
+  + String email
+  + login()
+  + logout()
+}
+
+class Product {
+  + String productName
+  + float price
+  + addToCart()
+}
+
+User --> Product: buys
+@enduml

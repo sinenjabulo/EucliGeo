@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
    
 
     //subdiagrams for 10.1 diagram1: "kvcbezpp" ggb-element-diagram1
-
+//subdiagram for 10.1, diagram 1, with div=ggb-element-diagram1
     var parametersD1 = {
         "width": 400,
         "height": 350,
@@ -856,8 +856,7 @@ function toggleFeedback(diagramNumber) {
         button.textContent = 'Check Answer';
     }
     
-
-
+}
 
 /*
      //conclusion only
@@ -1094,6 +1093,20 @@ function showKeywords() {
     //sessionStorage.setItem('finalTheoremsTable', JSON.stringify(pattern_recognition()));
 }
 
+// LOAD KEYWORDS FUNCTION
+function loadKeywords() {
+    const storedKeywords = JSON.parse(sessionStorage.getItem("selectedKeywords"));
+    if (storedKeywords) {
+        console.log("Retrieved keywords:", storedKeywords);
+
+        // Display the keywords in a paragraph
+        const keywordOutput = document.getElementById("keywordOutput");
+        keywordOutput.textContent = storedKeywords.join(', ');
+    } else {
+        console.warn("No keywords found in sessionStorage.");
+    }
+}
+
 // Function to show final theorems
 function showFinalTheorems() {
     storeFinalTheorems();  // Store highlighted theorems before displaying them
@@ -1161,19 +1174,7 @@ function matching() {
     sessionStorage.setItem('selectedKeywords', JSON.stringify(keywords));
 }
 
-// LOAD KEYWORDS FUNCTION
-function loadKeywords() {
-    const storedKeywords = JSON.parse(sessionStorage.getItem("selectedKeywords"));
-    if (storedKeywords) {
-        console.log("Retrieved keywords:", storedKeywords);
 
-        // Display the keywords in a paragraph
-        const keywordOutput = document.getElementById("keywordOutput");
-        keywordOutput.textContent = storedKeywords.join(', ');
-    } else {
-        console.warn("No keywords found in sessionStorage.");
-    }
-}
 
 let conc1 = "";
 let conc2 = "";
