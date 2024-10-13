@@ -285,189 +285,7 @@ function viewFinalD(){
     //10.1
     // Interactive hints and feedback
 var conclusions = "P1 = R2 [given] <br>";
-    // Check angles in Diagram 1
-function diagram1a() {
-    var angle1 = document.getElementById("angle1");
-    var angle2 = document.getElementById("angle2");
-    var angle3 = document.getElementById("angle3");
-    var feedback = "";
 
-    let reasoning = document.getElementById("reasoning").value.toLowerCase();
-
- 
-    // Check if angle1 is checked and provide feedback
-    if (angle1.checked) {
-        if ((reasoning.includes("exterior") || reasoning.includes("ext")) && reasoning.includes("quad")) {
-            feedback += "Correct! <br>S1 =  Q1 + Q2 [exterior angles of  cyclic quadrilateral].<br>";
-            conclusions += feedback.replace("Correct!", "");
-        } else {
-            feedback += "For Angle Q1 + Q2, think about how exterior angles relate to cyclic quadrilaterals.<br>";
-        }
-    }
-
-    // Check if angle2 is checked and provide feedback
-    if (angle2.checked) {
-        if ((reasoning.includes("exterior") || reasoning.includes("ext")) && reasoning.includes("quad")) {
-            feedback += "SDCT is not a cyclic quadrilateral. You know why? Review the theorems tab.<br>";
-        } 
-        else{
-            feedback += "Is there really a relationship between S1 and C2?"
-        }
-
-    }
-
-    // Check if angle3 is checked and provide feedback
-    if (angle3.checked) {
-        feedback += "Is there D1 from diagram1?<br>";
-    }
-
-    // Display the feedback
-    var feedbackElement = document.getElementById("angleFeedback")
-
-    if (feedbackElement.style.display === "none") {
-        feedbackElement.innerHTML = feedback;
-        feedbackElement.style.display = "block";
-        this.textContent = "Hide Feedback"; // Change button text
-    } else {
-        feedbackElement.style.display = "none"; // Hide the paragraph
-        this.textContent = "Show Feedback"; // Reset button text
-    }
-
-
-   
-}
-function diagram1b(){
-    var angle11 = document.getElementById("angle11");
-    var angle22 = document.getElementById("angle22");
-    var angle33 = document.getElementById("angle33");
-    var feedback1 = "";
-
-    let reasoning1 = document.getElementById("reasoning1").value.toLowerCase();
-     // Check if angle11 is checked and provide feedback
-     if (angle11.checked) {
-        if ((reasoning1.includes("exterior") || reasoning1.includes("ext")) && reasoning1.includes("quad")) {
-            feedback1 += "SDCT is not a cyclic quadrilateral. You know why? Review the theorems tab.<br>";
-        } 
-        else{
-            feedback1 += "Is there really a relationship between S1 and D2?"
-        }
-
-    }
-
-    // Check if angle22 is checked and provide feedback
-    if (angle22.checked) {
-        if ((reasoning1.includes("exterior") || reasoning1.includes("ext")) && ((reasoning1.includes("triangle") || reasoning1.includes("triangles")))) {
-            feedback1 += "Correct! <br>T2 = R2 + Q2 [exterior angles of triangle].<br>";
-            conclusions += feedback1.replace("Correct!", "");
-        } else {
-            feedback1 += "For Angle R2 + Q2, think about how exterior angles relate to triangles.<br>";
-        }    
-    }
-
-    // Check if angle33 is checked and provide feedback
-    if (angle33.checked) {
-        if (reasoning1.includes("corresponding") || reasoning.includes("corr")) {
-            feedback1 += "There are no parallel lines for this diagram<br>";
-        } 
-        else{
-            feedback1 += "Incorrect, S2 is not equal to T2 in any way."
-        }    }
-
-
-    // Display the feedback
-        var feedbackElement1 = document.getElementById("angleFeedback1")
-
-        if (feedbackElement1.style.display === "none") {
-            feedbackElement1.innerHTML = feedback1;
-            feedbackElement1.style.display = "block";
-            this.textContent = "Hide Feedback"; // Change button text
-        } else {
-            feedbackElement1.style.display = "none"; // Hide the paragraph
-            this.textContent = "Show Feedback"; // Reset button text
-        }
-
-}
-
-    // Check angles in Diagram 2
-function diagram2(){
-    var angle4 = document.getElementById("angle4");
-    let angle5 = document.getElementById("angle5");
-    let angle6 = document.getElementById("angle6");
-    var feedback2 = "";
-    let reasoning = document.getElementById("reasoning2").value.toLowerCase();
-
-
-    //checking if the box is checked
-    if (angle4.checked) {
-        if (reasoning.includes("tan chord theorem") || reasoning.includes("tangent") || reasoning.includes("chord")) {
-            feedback2 += "Correct! <br>P1 = Q1 [tan chord theorem].<br>";
-            conclusions += feedback2.replace("Correct!", "");
-        } else {
-            feedback2 += "Incorrect! For Angle Q1, theorems that are related to tangents, look at your theorem table.<br>";
-        }
-    }
-    if (angle5.checked) {
-        feedback2 += "Incorect, S2 is not equal P1. <br> Look at it again.<br>";
-    }
-    if (angle6.checked) {
-        feedback += "Incorrect, P2 is not equal P1 <br>Look at it again.<br>";
-    }
-
-    // Display the feedback
-    var feedbackElement = document.getElementById("angleFeedback2")
-
-    if (feedbackElement.style.display === "none") {
-        feedbackElement.innerHTML = feedback2;
-        feedbackElement.style.display = "block";
-        this.textContent = "Hide Feedback"; // Change button text
-    } else {
-        feedbackElement.style.display = "none"; // Hide the paragraph
-        this.textContent = "Show Feedback"; // Reset button text
-    }
-    
-}
-    
-    // Check angles in Diagram 3
-function diagram3(){
-    var angle7 = document.getElementById("angle7");
-    let angle8 = document.getElementById("angle8");
-    let angle9 = document.getElementById("angle9");
-    var feedback = "";
-    let reasoning = document.getElementById("reasoning3").value.toLowerCase();
-
-
-    //checking if the box is checked
-    if (angle7.checked) {
-        if (reasoning.includes("corresponding") || reasoning.includes("corr")) {
-        feedback += "Incorrect! How do corresponding look? Review the Definitions.<br>";
-    } else {
-        feedback += "Is there really a relationship between T2 and S2? <br> Look at the diagram again.<br>";
-    }
-    }
-    if (angle8.checked) {
-        if (reasoning.includes("alternate") || reasoning.includes("alt") || reasoning.includes("alternating")) {
-            feedback += "Correct! <br> T2 = C2 [alternating angles, CA || TS].<br>";
-            conclusions += feedback.replace("Correct!", "");
-        } else {
-            feedback += "For Angle C2, what do you know about parallel lines with traversal lines that makes shape Z or N? <br> Look at the diagram again<br>";
-    }        }
-    if (angle9.checked) {
-        feedback += "Does Q1 really have a relationship with P1?. <br> Look at the diagram again<br>";
-    }
-
-    // Display the feedback
-    var feedbackElement = document.getElementById("angleFeedback3")
-
-    if (feedbackElement.style.display === "none") {
-        feedbackElement.innerHTML = feedback;
-        feedbackElement.style.display = "block";
-        this.textContent = "Hide Feedback"; // Change button text
-    } else {
-        feedbackElement.style.display = "none"; // Hide the paragraph
-        this.textContent = "Show Feedback"; // Reset button text
-    }
-    
-}
 document.addEventListener("DOMContentLoaded", conclusion());
 
 // Check final conclusion
@@ -839,8 +657,18 @@ function toggleFeedback(diagramNumber) {
             if (selectedValue === correctAnswer.value && reasoning.trim() === correctAnswer.reasoning) {
                 feedbackElement.textContent = correctAnswer.feedback;
                 feedbackElement.style.color = 'green';
-            } else {
-                feedbackElement.textContent = "Incorrect. Please give correct reasoning, review the theorems.";
+            } 
+            else if(selectedValue === correctAnswer.value && reasoning.trim() !== correctAnswer.reasoning){
+                feedbackElement.textContent = "Incorrect reasoning. Look at the diagram again";
+                feedbackElement.style.color = 'orange';
+            }
+            else if(selectedValue !== correctAnswer.value && reasoning.trim() === correctAnswer.reasoning){
+                feedbackElement.textContent = "Incorrect angle. Look at the diagram again ";
+                feedbackElement.style.color = 'orange';
+            }
+            
+            else {
+                feedbackElement.textContent = wrongAnswers(index)//"Incorrect. Please give correct reasoning, review the theorems.";
                 feedbackElement.style.color = 'red';
             }
         } else {
@@ -1773,38 +1601,6 @@ function checkDiagrams(){
     }    
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function showKeywords() {
     // CSS for highlighting the selected theorem
     const style = document.createElement('style');
@@ -2029,3 +1825,234 @@ function storeFinalTheorems() {
     const finalTheorems = Array.from(highlightedCells).map(cell => cell.textContent);
     sessionStorage.setItem('finalTheorems', JSON.stringify(finalTheorems));
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function wrongAnswers(index){
+
+    switch(index){
+        /*DIAGRAM 1  diagramNUmbers = 0 AND 1*/
+        case 0: 
+            return diagram1a();break;
+        case 1: 
+            diagram1b();break;
+
+        /*DIAGRAM 2 diagramNUmbers = 2*/
+        case 2: 
+            diagram2();break;
+
+        /*DIAGRAM 3 diagramNUmbers = 3*/
+        case 3: 
+        diagram3();break;
+
+    }
+}
+
+// Check angles in Diagram 1
+function diagram1a() {
+    //var angle1 = document.getElementById("angle1");
+    var angle2 = document.getElementById("angle2");
+    //var angle3 = document.getElementById("angle3");
+    var feedback = "";
+
+    let reasoning = document.getElementById("reasoning").value.toLowerCase();
+
+    // Check if angle2 is checked and provide feedback
+    if (angle2.checked) {
+        if ((reasoning.includes("exterior") || reasoning.includes("ext")) && reasoning.includes("quad")) {
+            feedback += "SDCT is not a cyclic quadrilateral. You know why? Review the theorems tab.";
+        } 
+        else{
+            feedback += "Is there really a relationship between S1 and C2?"
+        }
+
+    }
+
+    // Check if angle3 is checked and provide feedback
+    else {
+        feedback += "Is there D1 from diagram1?<br>";
+    }
+    
+    return feedback;
+
+    
+}
+function diagram1b(){
+    var angle11 = document.getElementById("angle11");
+    //var angle22 = document.getElementById("angle22");
+    var angle33 = document.getElementById("angle33");
+    var feedback1 = "";
+
+    let reasoning1 = document.getElementById("reasoning1").value.toLowerCase();
+        // Check if angle11 is checked and provide feedback
+        if (angle11.checked) {
+            if ((reasoning1.includes("exterior") || reasoning1.includes("ext")) && reasoning1.includes("quad")) {
+                feedback1 += "SDCT is not a cyclic quadrilateral. You know why? Review the theorems tab.<br>";
+            } 
+            else{
+                feedback1 += "Is there really a relationship between S1 and D2?"
+            }
+
+        }
+
+        // Check if angle22 is checked and provide feedback
+        /*else if (angle22.checked) {
+            if ((reasoning1.includes("exterior") || reasoning1.includes("ext")) && ((reasoning1.includes("triangle") || reasoning1.includes("triangles")))) {
+                feedback1 += "Correct! <br>T2 = R2 + Q2 [exterior angles of triangle].<br>";
+                conclusions += feedback1.replace("Correct!", "");
+            } else {
+                feedback1 += "For Angle R2 + Q2, think about how exterior angles relate to triangles.<br>";
+            }    
+        }*/
+
+        // Check if angle33 is checked and provide feedback
+        else {
+            if (reasoning1.includes("corresponding") || reasoning.includes("corr")) {
+                feedback1 += "There are no parallel lines for this diagram<br>";
+            } 
+            else{
+                feedback1 += "Incorrect, S2 is not equal to T2 in any way."
+            }    
+        }
+
+
+    // Display the feedback
+        var feedbackElement1 = document.getElementById("angleFeedback1")
+
+        if (feedbackElement1.style.display === "none") {
+            feedbackElement1.innerHTML = feedback1;
+            feedbackElement1.style.display = "block";
+            this.textContent = "Hide Feedback"; // Change button text
+        } else {
+            feedbackElement1.style.display = "none"; // Hide the paragraph
+            this.textContent = "Show Feedback"; // Reset button text
+        }
+
+}
+    // Check angles in Diagram 2
+function diagram2(){
+    var angle4 = document.getElementById("angle4");
+    let angle5 = document.getElementById("angle5");
+    let angle6 = document.getElementById("angle6");
+    var feedback2 = "";
+    let reasoning = document.getElementById("reasoning2").value.toLowerCase();
+
+
+    //checking if the box is checked
+    if (angle4.checked) {
+        if (reasoning.includes("tan chord theorem") || reasoning.includes("tangent") || reasoning.includes("chord")) {
+            feedback2 += "Correct! <br>P1 = Q1 [tan chord theorem].<br>";
+            conclusions += feedback2.replace("Correct!", "");
+        } else {
+            feedback2 += "Incorrect! For Angle Q1, theorems that are related to tangents, look at your theorem table.<br>";
+        }
+    }
+    else if (angle5.checked) {
+        feedback2 += "Incorect, S2 is not equal P1. <br> Look at it again.<br>";
+    }
+    else if (angle6.checked) {
+        feedback += "Incorrect, P2 is not equal P1 <br>Look at it again.<br>";
+    }
+
+    // Display the feedback
+    var feedbackElement = document.getElementById("angleFeedback2")
+
+    if (feedbackElement.style.display === "none") {
+        feedbackElement.innerHTML = feedback2;
+        feedbackElement.style.display = "block";
+        this.textContent = "Hide Feedback"; // Change button text
+    } else {
+        feedbackElement.style.display = "none"; // Hide the paragraph
+        this.textContent = "Show Feedback"; // Reset button text
+    }
+    
+}
+    
+    // Check angles in Diagram 3
+function diagram3(){
+    var angle7 = document.getElementById("angle7");
+    let angle8 = document.getElementById("angle8");
+    let angle9 = document.getElementById("angle9");
+    var feedback = "";
+    let reasoning = document.getElementById("reasoning3").value.toLowerCase();
+
+
+    //checking if the box is checked
+    if (angle7.checked) {
+        if (reasoning.includes("corresponding") || reasoning.includes("corr")) {
+        feedback += "Incorrect! How do corresponding look? Review the Definitions.<br>";
+    } else {
+        feedback += "Is there really a relationship between T2 and S2? <br> Look at the diagram again.<br>";
+    }
+    }
+    else if (angle8.checked) {
+        if (reasoning.includes("alternate") || reasoning.includes("alt") || reasoning.includes("alternating")) {
+            feedback += "Correct! <br> T2 = C2 [alternating angles, CA || TS].<br>";
+            conclusions += feedback.replace("Correct!", "");
+        } else {
+            feedback += "For Angle C2, what do you know about parallel lines with traversal lines that makes shape Z or N? <br> Look at the diagram again<br>";
+    }        }
+    else if (angle9.checked) {
+        feedback += "Does Q1 really have a relationship with P1?. <br> Look at the diagram again<br>";
+    }
+
+    // Display the feedback
+    var feedbackElement = document.getElementById("angleFeedback3")
+
+    if (feedbackElement.style.display === "none") {
+        feedbackElement.innerHTML = feedback;
+        feedbackElement.style.display = "block";
+        this.textContent = "Hide Feedback"; // Change button text
+    } else {
+        feedbackElement.style.display = "none"; // Hide the paragraph
+        this.textContent = "Show Feedback"; // Reset button text
+    }
+    
+}
+    
