@@ -754,8 +754,70 @@
 
 
     <script>
+
+        // Function to retrieve finalTheorems from local storage and display them
+function relevantTheorems() {
+    const correctProperties = ['Alternate angles are equal', 'Tan chord theorem', 'Co-interior angles', 'Vertically opposite angles', 'Exterior angle of cyclic quadrilateral', 'Opposite angles of a cyclic quadrilateral', 'Corresponding angles are equal',
+        'Exterior angles of triangles', 'Sum of interior angles of triangles add up to 180°'
+    ];
+    
+    const relevantTheos = document.getElementById("finalTheorems");
+
+    // Check if the theorems are already displayed
+    if (relevantTheos.style.display === "none" || relevantTheos.innerHTML === "") {
+        // Retrieve the stored theorems from sessionStorage
+        const theorems = JSON.parse(sessionStorage.getItem('finalTheorems')) || [];
+
+        // Clear previous content (if any)
+        relevantTheos.innerHTML = "";
+
+        if (theorems.length > 0) {
+            // Create heading
+            const heading = document.createElement('h3');
+            heading.textContent = "Here are the final theorems for the problem to use when solving:";
+            relevantTheos.appendChild(heading);
+
+            // Create list for theorems
+            const list = document.createElement('ul');
+
+            theorems.forEach(theorem => {
+                const listItem = document.createElement('li');
+                listItem.textContent = theorem;
+                listItem.style.fontSize = "20px";
+
+                // Check if the theorem is correct or incorrect
+                if (correctProperties.includes(theorem)) {
+                    listItem.style.color = 'green'; // Highlight correct theorems in green
+                } else {
+                    listItem.style.color = 'red';   // Highlight incorrect theorems in red
+
+                    // Add a message for incorrect theorems
+                    const message = document.createElement('span');
+                    message.textContent = " -  Are you sure about this theorem? Please review the theorems and definitions tab.";
+                    message.style.color = 'black'; // Message in black for readability
+                    message.style.fontStyle = 'italic'; // Italic to differentiate the message
+                    listItem.appendChild(message);
+                }
+
+                list.appendChild(listItem);
+            });
+
+            relevantTheos.appendChild(list);
+        } else {
+            // If no theorems are stored, display a message
+            relevantTheos.textContent = "No theorems have been selected.";
+        }
+
+        // Show the container
+        relevantTheos.style.display = "block";
+    } else {
+        // Hide the container
+        relevantTheos.style.display = "none";
+    }
+}
+
    
-            // Function to retrieve finalTheorems from local storage and display them
+   /*         // Function to retrieve finalTheorems from local storage and display them
         function relevantTheorems() {
             const relevantTheos = document.getElementById("finalTheorems");
             
@@ -797,7 +859,7 @@
                 relevantTheos.style.display = "none";
             }
         }   
-
+*/
 // Initially hide the theorems container
 document.getElementById("finalTheorems").style.display = "none";
 
