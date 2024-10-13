@@ -541,7 +541,7 @@ function myKeywordsCheckList() {
 
 // PATTERN RECOGNITION
 //retrieves the keywords from storage, matches the keywords with their properties
-
+/*
 function pattern_recognition() {
     const loadedKeywords = JSON.parse(sessionStorage.getItem("selectedKeywords")); // Retrieve keywords from sessionStorage
     const theorems = {
@@ -619,7 +619,7 @@ function pattern_recognition() {
     const keywordOutput = document.getElementById("keywordOutput");
     const theorems_in_table = document.getElementById("theorems");
     /*keywordOutput.innerHTML = ""; // Clear previous content
-    theorems_in_table.innerHTML = ""; // Clear previous table content*/
+    theorems_in_table.innerHTML = ""; // Clear previous table content
 
     if (loadedKeywords && loadedKeywords.length > 0) {
         // Create the table element
@@ -687,7 +687,7 @@ function pattern_recognition() {
         keywordOutput.textContent = "No keywords found in sessionStorage.";
     }
 }
-
+*/
 function theoremButtons(diagramNumber, theorem){
     document.getElementById('reasoning1').value = theorem;
     document.getElementById('reasoning2').value = theorem;
@@ -880,7 +880,7 @@ function toggleFeedback(diagramNumber) {
     */
    
     
-}
+
 
 function toggleFeedback2(diagramNumber) {
     const feedbackElements = [
@@ -902,11 +902,6 @@ function toggleFeedback2(diagramNumber) {
         document.getElementById('checkingAngleAA'),           
         document.getElementById('checkingAngleR1'),
         document.getElementById('checkingAngleC2'),
-
-
-
-
-
     ];
 
     const selectedAngles = [
@@ -976,7 +971,6 @@ function toggleFeedback2(diagramNumber) {
         button.textContent = 'Check Answer';
     }
     
-
 
 
 /*
@@ -1076,6 +1070,7 @@ window.addEventListener('load', function() {
 });
 
 // Event listener to load keywords and display associated theorems
+/*
 function showKeywords() {
     // CSS for highlighting the selected theorem
     const style = document.createElement('style');
@@ -1088,10 +1083,56 @@ function showKeywords() {
     document.head.appendChild(style);
 
     loadKeywords();  // This will display the keywords in the UI
-    //sessionStorage.setItem('finalTheorems', JSON.stringify(loadKeywords()));
     pattern_recognition();  // This will display the associated theorems in a table
-    //sessionStorage.setItem('finalTheoremsTable', JSON.stringify(pattern_recognition()));
+
+    // Function to check if a cell is highlighted
+    function isCellHighlighted(cell) {
+        return cell.classList.contains('highlighted');
+    }
+
+    // Check if the highlighted cells match properties in correctProperties
+    const table = document.querySelector('table'); // Assuming the table is created by pattern_recognition()
+
+    // Create or update the message paragraph
+    let messageParagraph = document.getElementById('message-paragraph');
+    if (!messageParagraph) {
+        messageParagraph = document.createElement('p');
+        messageParagraph.id = 'message-paragraph';
+        const showPropertiesButton = document.getElementById('showPropertiesButton');  // Assume this is the button
+        showPropertiesButton.insertAdjacentElement('afterend', messageParagraph);  // Insert paragraph after the button
+    }
+
+    if (table) {
+        const cells = table.querySelectorAll('td'); // Get all table cells
+
+        let allMatched = true;  // Variable to track if all highlighted cells match
+        let matchingProperties = [];  // Array to store matching properties
+
+        cells.forEach((cell) => {
+            if (isCellHighlighted(cell)) {
+                const cellText = cell.textContent.trim(); // Get the text content of the cell
+                if (correctProperties.includes(cellText)) {
+                    matchingProperties.push(cellText);  // Add matching property to the array
+                } else {
+                    allMatched = false;  // Set to false if there is a mismatch
+                }
+            }
+        });
+
+        // Update the message in the paragraph based on matching properties
+        if (matchingProperties.length > 0) {
+            messageParagraph.innerHTML = `Matching properties: ${matchingProperties.join(', ')}`;
+            messageParagraph.style.color = 'green';  // Set text color to green
+        } else {
+            messageParagraph.innerHTML = "No matching properties found.";
+            messageParagraph.style.color = 'red';  // Set text color to red
+        }
+    } else {
+        messageParagraph.innerHTML = 'No table found.';
+        messageParagraph.style.color = 'black';  // Default color
+    }
 }
+*/
 
 // LOAD KEYWORDS FUNCTION
 function loadKeywords() {
@@ -1107,7 +1148,8 @@ function loadKeywords() {
     }
 }
 
-// Function to show final theorems
+// Function to show final theorems/*
+/*
 function showFinalTheorems() {
     storeFinalTheorems();  // Store highlighted theorems before displaying them
 
@@ -1141,7 +1183,7 @@ function showFinalTheorems() {
         finalTheoremsContainer.textContent = "No theorems have been selected.";
     }
 }
-
+*/
 // Storing the theorems so that they can be accessible whenever they are needed
 function storeFinalTheorems() {
     const highlightedCells = document.querySelectorAll('.highlighted');
@@ -1731,3 +1773,259 @@ function checkDiagrams(){
     }    
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function showKeywords() {
+    // CSS for highlighting the selected theorem
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .highlighted {
+            background-color: yellow;
+            cursor: pointer;
+        }
+    `;
+    document.head.appendChild(style);
+
+    loadKeywords();  // This will display the keywords in the UI
+    pattern_recognition();  // This will display the associated theorems in a table
+
+
+}
+
+
+function showFinalTheorems() {
+    const correctProperties = ['Alternate angles are equal', 'Tan chord theorem', 'Co-interior angles', 'Vertically opposite angles', 'Exterior angle of cyclic quadrilateral', 'Opposite angles of a cyclic quadrilateral', 'Corresponding angles are equal',
+        'Exterior angles of triangles','Similar triangles','Congruent triangles', 'Sum of interior angles of triangles add up to 180°'
+    ];
+    storeFinalTheorems();  // Store highlighted theorems
+
+    const finalTheoremsContainer = document.getElementById('finalTheoremsContainer');
+    finalTheoremsContainer.innerHTML = '';  // Clear previous content
+
+    const storedTheorems = JSON.parse(sessionStorage.getItem('finalTheorems')) || [];
+    if (storedTheorems.length > 0) {
+        const heading = document.createElement('h3');
+        heading.textContent = "Final Theorems for the problem:";
+        finalTheoremsContainer.appendChild(heading);
+
+        const list = document.createElement('ul');
+        storedTheorems.forEach(theorem => {
+            const listItem = document.createElement('li');
+            listItem.textContent = theorem;
+
+            // Check if the theorem is in the correctProperties array
+            if (correctProperties.includes(theorem)) {
+                listItem.style.color = 'green'; // Highlight correct theorems in green
+            } else {
+                listItem.style.color = 'red';   // Highlight incorrect theorems in red
+
+                // Add a message for incorrect theorems
+                const message = document.createElement('span');
+                message.textContent = " - Are you sure about this theorem? Please review the theorems and definitions tab.";
+                message.style.color = 'black'; // Message in black color for readability
+                message.style.fontStyle = 'italic'; // Italic style to distinguish the message
+                listItem.appendChild(message);
+            }
+
+            list.appendChild(listItem);
+        });
+        finalTheoremsContainer.appendChild(list);
+    } else {
+        finalTheoremsContainer.textContent = "No theorems have been selected.";
+    }
+}
+
+
+// Store the selected theorems in sessionStorage
+
+/*function storeFinalTheorems() {
+    const correctProperties = ['Alternate angles are equal', 'Tan chord theorem','Co-interior angles','Vertically opposite angles','Exterior angle of cyclic quadrilateral','Opposite angles of a cyclic quadrilateral', 'Corresponding angles are equal',
+        'Exterior angles of triangles','Sum of interior angles of triangles add up to 180°'
+    ];  // Example properties
+    const table = document.querySelector('table');  // Assuming table has the properties
+    const storedTheorems = [];
+
+    if (table) {
+        const cells = table.querySelectorAll('td');
+        cells.forEach((cell) => {
+            if (cell.classList.contains('highlighted')) {
+                const text = cell.textContent.trim();
+                if (correctProperties.includes(text)) {
+                    storedTheorems.push(text);  // Add to final theorems
+                }
+            }
+        });
+    }
+    sessionStorage.setItem('finalTheorems', JSON.stringify(storedTheorems));
+}*/
+
+function pattern_recognition() {
+    const loadedKeywords = JSON.parse(sessionStorage.getItem("selectedKeywords")); // Retrieve keywords from sessionStorage
+    const theorems = {
+        Tangent: [
+            "Tangent perpendicular to a radius",
+            "Tangent perpendicular to a diameter",
+            "Tangents from the same point",
+            "Tan chord theorem"
+        ],
+        "Circle without center": [
+            "Angles at the circumference in the same segment",
+            "Angles in the same segment",
+            "Line subtends equal angles / converse angles in the same segment",
+            "Equal chords, equal angles"
+        ],
+        "Circle with center": [
+            "Line from center to midpoint of chord",
+            "Angle at center is twice angle at the circumference",
+            "Angle in a semi-circle / chord subtends 90° / converse angles in the same segment",
+            "Radius perpendicular to a tangent",
+            "Isosceles triangle with radii",
+            "Line perpendicular to a radius",
+            "Line from center perpendicular to a chord"
+        ],
+        "Parallel Lines": [
+            "Alternate angles are equal",
+            "Corresponding angles are equal",
+            "Co-interior angles add up to 180°"
+        ],
+        Lines: [
+            "Vertically opposite angles",
+            "Angles on a straight line add up to 180°",
+            "Angles around a point / angles in a revolution"
+        ],
+        "Cyclic Quadrilateral": [
+            "Opposite angles of a cyclic quadrilateral",
+            "Exterior angle of cyclic quadrilateral",
+            "Angles at the circumference in the same segment"
+        ],
+        Triangles: [
+            "Sum of interior angles of triangles add up to 180°",
+            "Exterior angles of triangles",
+            "Opposite angles, equal sides",
+            "Angles opposite equal sides",
+            "Sides opposite equal angles",
+            "Pythagoras / Theorem of Pythagoras / Converse Pythagoras",
+            "Midpoint Theorem",
+            "Line through midpoint || to second side",
+            "Line parallel to one side of triangle / Proportionality theorem",
+            "Line divides two sides of triangle proportionally",
+            "Similar triangles",
+            "Congruent triangles",
+            "Sides of triangle in proportion",
+            "Same base, same height / Equal bases, equal heights"
+        ],
+        Similarity: [
+            "Angle, Angle, Angle (AAA)",
+            "Side, Side, Side (SSS)"
+        ],
+        Congruency: [
+            "Side, Side, Side (SSS)",
+            "Side, Angle, Side (SAS)",
+            "Angle, Angle, Side (AAS)",
+            "Right angle, Hypotenuse, Side (RHS)"
+        ]
+    };
+
+    const keywordOutput = document.getElementById("keywordOutput");
+    const theorems_in_table = document.getElementById("theorems");
+    theorems_in_table.innerHTML = ""; // Clear previous table content
+
+    if (loadedKeywords && loadedKeywords.length > 0) {
+        // Create the table element
+        const table = document.createElement("table");
+        table.border = "1";
+
+        // Create table header row
+        const headerRow = table.insertRow();
+        const headerKeyword = headerRow.insertCell(0);
+        headerKeyword.textContent = "Keyword";
+        headerKeyword.style.fontWeight = "bold"; // Make "Keyword" bold
+
+        const headerTheorem = headerRow.insertCell(1);
+        headerTheorem.textContent = "Property";
+        headerTheorem.style.fontWeight = "bold"; // Make "Property" bold
+
+        // Populate the table with keywords and their associated theorems
+        loadedKeywords.forEach(keyword => {
+            if (theorems[keyword]) {
+                let firstKeyword = true;
+
+                theorems[keyword].forEach(theorem => {
+                    const row = table.insertRow();
+                    const cellKeyword = row.insertCell(0);
+                    const cellTheorem = row.insertCell(1);
+
+                    if (firstKeyword) {
+                        cellKeyword.textContent = keyword;
+                        cellKeyword.style.fontWeight = "bold"; // Make "Keyword" bold
+                        firstKeyword = false;
+                    } else {
+                        cellKeyword.textContent = ""; // Don't repeat keyword in subsequent rows
+                    }
+
+                    cellTheorem.textContent = theorem;
+
+                    // Add event listener for highlighting
+                    cellTheorem.addEventListener('click', function () {
+                        cellTheorem.classList.toggle('highlighted');
+                        storeFinalTheorems(); // Update storage when a theorem is highlighted
+                    });
+                });
+            } else {
+                const row = table.insertRow();
+                const cellKeyword = row.insertCell(0);
+                const cellTheorem = row.insertCell(1);
+                cellKeyword.textContent = keyword;
+                cellKeyword.style.fontWeight = "bold"; // Make "Keyword" bold
+                cellTheorem.textContent = "No theorems found";
+            }
+        });
+
+        // Append the table to the theorems_in_table element
+        theorems_in_table.appendChild(table);
+
+        // Save the table content in sessionStorage for persistence
+        sessionStorage.setItem('finalTheoremsTable', theorems_in_table.innerHTML);
+
+    } else {
+        keywordOutput.textContent = "No keywords found in sessionStorage.";
+    }
+}
+
+// Function to store the final highlighted theorems in sessionStorage
+
+function storeFinalTheorems() {
+    const highlightedCells = document.querySelectorAll('.highlighted');
+    const finalTheorems = Array.from(highlightedCells).map(cell => cell.textContent);
+    sessionStorage.setItem('finalTheorems', JSON.stringify(finalTheorems));
+}
